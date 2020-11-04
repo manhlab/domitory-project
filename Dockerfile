@@ -1,6 +1,15 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
-RUN apk --update add bash nano
-ENV STATIC_URL /static
-ENV STATIC_PATH /var/www/app/static
-COPY ./requirements.txt /var/www/requirements.txt
-RUN pip install -r /var/www/requirements.txt
+FROM debian:stable
+
+RUN ln -sf /bin/bash /bin/sh
+RUN apt-get update
+RUN apt-get -y install vim
+RUN apt-get -y install python python-dev python-pip python-setuptools
+RUN apt-get -y install nginx uwsgi-core
+
+RUN pip install -Iv Flask flask-cors requests uwsgi
+
+EXPOSE 80
+
+ADD . /MyApp
+RUN chmod -R 777 /MyApp/boot.sh
+CMD /MyApp/boot.sh
