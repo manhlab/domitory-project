@@ -131,80 +131,52 @@
                     <ul class="list-group mb-3">
                         <li class="list-group-item d-flex justify-content-between lh-condensed">
                             <div>
-                                <h6 class="my-0">Product name</h6>
+                                <h6 class="my-0">Current Request</h6>
                                 <small class="text-muted">Brief description</small>
                             </div>
-                            <span class="text-muted">$12</span>
+                            <span class="text-muted">Request</span>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between lh-condensed">
-                            <div>
-                                <h6 class="my-0">Second product</h6>
-                                <small class="text-muted">Brief description</small>
-                            </div>
-                            <span class="text-muted">$8</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-condensed">
-                            <div>
-                                <h6 class="my-0">Third item</h6>
-                                <small class="text-muted">Brief description</small>
-                            </div>
-                            <span class="text-muted">$5</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between bg-light">
-                            <div class="text-success">
-                                <h6 class="my-0">Promo code</h6>
-                                <small>EXAMPLECODE</small>
-                            </div>
-                            <span class="text-success">-$5</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Total (USD)</span>
-                            <strong>$20</strong>
-                        </li>
+
                     </ul>
 
-                    <form class="card p-2">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Promo code">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-secondary">Redeem</button>
-                            </div>
-                        </div>
-                    </form>
+
                 </div>
                 <div class="container col-md-8 order-md-1" id="central">
 
                     <main role="main">
                         <div class="jumbotron">
+                            <h4 class="mb-3">Request form</h4>
                             <div id="errorMessage">
 
                             </div>
                             <form id="myForm" action="" method="POST" role="form">
                                 <div class="form-group">
-                                    <label for="subject" class="text-white">Name</label>
-                                    <input type="text" class="form-control" id="subject" placeholder="App Developement" title="Subject should contain more than one letter." name="subject" required>
+                                    <label for="subject" class="text-black">Name</label>
+                                    <input type="text" class="form-control" id="subject" placeholder="Student name" title="Subject should contain more than one letter." name="subject" required>
                                 </div>
                                 <div class="form-group" id="email-group">
-                                    <label for="email" class="text-white">Email address</label>
+                                    <label for="email" class="text-black">Email address</label>
                                     <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="subject" class="text-white">Subject</label>
-                                    <input type="text" class="form-control" id="subject" placeholder="App Developement" title="Subject should contain more than one letter." name="subject" required>
+                                    <label for="subject" class="text-black">Passport</label>
+                                    <input type="text" class="form-control" id="subject" placeholder="C12345678" title="Subject should contain more than one letter." name="subject" required>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-5 mb-3">
-                                        <label for="country">Country</label>
+                                        <label for="country">Request</label>
                                         <select class="custom-select d-block w-100" id="country" required>
                                             <option value="">Choose...</option>
-                                            <option>United States</option>
+                                            <option>New student</option>
+                                            <option>Change room</option>
+                                            <option>Our </option>
                                         </select>
                                         <div class="invalid-feedback">
-                                            Please select a valid country.
+                                            Please select a valid request.
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-3">
-                                        <label for="state">State</label>
+                                        <label for="state">Current Room</label>
                                         <select class="custom-select d-block w-100" id="state" required>
                                             <option value="">Choose...</option>
                                             <option>California</option>
@@ -214,7 +186,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3 mb-3">
-                                        <label for="zip">Zip</label>
+                                        <label for="zip">Next Room</label>
                                         <input type="text" class="form-control" id="zip" placeholder="" required>
                                         <div class="invalid-feedback">
                                             Zip code required.
@@ -222,12 +194,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="body" class="text-white">Message</label>
-                                    <textarea class="form-control" id="body" rows="6" name="body" placeholder="Build me a cool app." required></textarea>
+                                    <label for="body" class="text-black">Message</label>
+                                    <textarea class="form-control" id="body" rows="6" name="body" placeholder="Send to the admin." required></textarea>
                                 </div>
                                 <hr class="mb-4">
 
-                                <h4 class="mb-3">Payment</h4>
+                                <h4 class="mb-3">Processing </h4>
 
                                 <div class="d-block my-3">
                                     <div class="custom-control custom-radio">
