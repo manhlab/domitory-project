@@ -1,6 +1,5 @@
 FROM debian:stable
 
-RUN ln -sf /bin/bash /bin/sh
 RUN apt-get update
 RUN apt-get -y install vim
 RUN apt-get -y install python python-dev python-pip python-setuptools
