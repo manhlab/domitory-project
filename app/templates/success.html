@@ -1,88 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Success{% endblock %}
 
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="Justin Alderson" content="Email success page">
-   
-   
-
-    <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <link rel="icon" href="" type="image/x-icon">
-    <title>App</title>
-
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
-   
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/successStyle.css')}}" >
-
-</head>
-   
-<body> 
-    <main role="main">
-        <div class="jumbotron jumbotron-fluid" id="my-jumbo">
-          <div class="row">
-             <div class="col-lg-8 col-md-8 col-sm-12" align="left" id="my-twitter">
-                 <div class="container" id="left-top-con">
-                    <div class="row" >
-                        <h1 id="mytitle" class="display-4 text-white"><strong>Success</strong></h1>
-                   </div>
-                        <hr id="hr-one">
-                        <hr id="hr-two">
-                        <hr id="hr-three">
-                        <hr id="hr-four">
-                        <hr id="hr-five">   
-                  </div>
-             </div>
-        
-        </div>
-            <nav class="navbar">
-              <ul class="nav">
-               <li class="nav-item">
-                <p class="nav-link active"><a class="text-white" href="">Index</a></p>
-              </li>
-              <li class="nav-item">
-                 <p class="nav-link active"><a class="text-white" href="contact.html">Contact</a></p>
-              </li>
-               <li class="nav-item">
-                 <p class="nav-link active"><a class="text-white" href="">About</a></p>
-              </li>
-                </ul>
-                <ul class="nav">
-                    <li class="nav-item">
-                         <p class="nav-link active"><a class="fa fa-twitter" href="https://twitter.com" target="_blank"></a></p>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    
-        <div class="container-fluid">
-          <div class="row">
-            <div class="card text-center" id="about">
-             <div class="card-body">
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="card text-center" id="about">
+            <div class="card-body">
                 <div class="row">
-                    <h2><p id="name">Your request has been sent. We will get back to you as soon as possible, thanks.</p></h2>
+                    <h2>
+                        <p id="name">Your request has been sent. We will get back to you as soon as possible, thanks.</p>
+                    </h2>
                 </div>
-             </div>
-           </div>
-          </div>
+            </div>
         </div>
-    </main> 
-  
-   <footer class="text-white">
-        <div id="bottom">
-              <div class="container-my">
-                <p class="lead text-white">App</p>
-              </div>
-        </div>
-    </footer>
-   
-</body>
+    </div>
+</div>
+{% endblock %}
