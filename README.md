@@ -1,4 +1,4 @@
-# Flask-Nginx Docker depoly for Domitory system
+# Flask-SQL Docker depoly for Domitory system
 
 ## Using this project
 
