@@ -1,0 +1,80 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="request form">
+    <meta name="author" content="Tran Duc Manh">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../static/img/itmo.png" type="image/x-icon">
+    <title>Request Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    {%block script%}{% endblock %}
+</head>
+<body class="bg-light">
+
+    <main role="main">
+        <div class="row">
+            <div class="container" id="central">
+
+                <main role="main">
+                    <div class="jumbotron">
+                        <div class="container">
+                            <div class="py-5 text-center">
+                                <img class="d-block mx-auto mb-4" src="../static/img/itmo.png" alt="" width="72" height="72">
+                                <h2>ITMO DOMITORY MANAGEMENT SYSTEM</h2>
+                                <p class="lead">It's MOre than a university.</p>
+                            </div>
+                        </div>
+
+                        <form id="myForm" action="sucess.html" method="POST" role="form">
+                            <div class="form-group">
+                                <label for="subject" class="text-black">Name</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Student name" title="Subject should contain more than one letter." name="name" required>
+                            </div>
+                            <div class="form-group" id="email-group">
+                                <label for="email" class="text-black">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" class="text-black">City</label>
+                                <input type="text" class="form-control" id="subject" placeholder="City name" title="In Russian language" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" class="text-black">Passport</label>
+                                <input type="text" class="form-control" id="subject" placeholder="C12345678" title="Subject should contain more than one letter." name="passport" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" class="text-black">Password</label>
+                                <input class="form-control" id="subject" type="password" name="password" placeholder="Password" name="password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" class="text-black">Confirm Password</label>
+                                <input class="form-control" id="subject" type="password" name="password" placeholder="Confirm Password" name="confirm_pass" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" class="checkbox">
+                                <span>New student</span>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <button type="submit" class="btn btn-dark mb-2  " name="enquire">Sign Up</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </main>
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2020-2021 ITMO University</p>
+    </footer>
+</body>
+   
