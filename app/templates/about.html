@@ -1,28 +1,153 @@
 {% extends 'base.html' %}
 {% block title %}About{% endblock %}
+{%block script %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+{% endblock %}
 
 {% block content %}
+<h3 class="mb-0">Moving into a dormitory</h3>
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Your personal applicant’s page
+                </button>
+            </h2>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                When filling in your registration form, you need to put a tick next to “I need a dorm and temporary registration for the period of my studies”.
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Providing medical documents
+                </button>
+            </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+                In your personal applicant’s page, you need to attach scanned copies of the following documents:
+
+                <li>Form 086/y certificate;</li>
+                <li>Medical assessment of a chest X-ray performed in Russia (in case it is not included in your form 086/y certificate);</li>
+                <li>Vaccination certificate.</li>
+                You will also need to provide two copies of the 086/y certificate to the sports medicine specialist in the beginning of September (for your Physical Education classes).
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Signing up to ISU
+                </button>
+            </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+                Within a week after your order of admission to ITMO is issued, instructions on how to sign up to the university’s intranet system ISU will be sent to the email address listed in your personal applicant’s page. The sign-up process is obligatory for all students. </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="heading4">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                    Book a digital appointment to move in
+                </button>
+            </h2>
+        </div>
+        <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+            <div class="card-body">
+                <p>In August, every student with a guaranteed place in one of the university’s dormitories can book the date and time when they would like to move in. Students will be notified by email when this feature becomes available, and the date and time of move-in during the first wave will need to be booked within 48 hours after the student is assigned to a dorm.
+
+                    Attention: you cannot choose the dorm you will be assigned to.
+
+                    Before the residential lease agreement takes force (on September 1), the applicant has to pay 200 rubles/day for their stay at the dormitory.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="heading5">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                    Moving in
+                </button>
+            </h2>
+        </div>
+        <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+            <div class="card-body">
+                <p>In late August, the moving-in process will start in accordance with the Order of precedence of providing accommodation.
+
+                    To move into an ITMO University dormitory, you need:
+
+                    Your passport and a copy of it;
+                    Notarized parental consent in accordance with form 1 (in case the applicant is below 18);
+                    Two 3x4 cm photos.
+                    To move into the dorms of the Interuniversity campus and the St. Petersburg State Forestry University, you need:
+
+                    Your passport and a copy of it;
+                    Parental consent on signing the residential lease agreement and residence in the Interuniversity campus in accordance with form 2 (this one doesn’t have to be notarized; needed for students below 18);
+                    Certificate of student status, acquired at the Student Services Office;
+                    Two 3x4 cm photos;
+                    Copy of a form 086/y certificate;
+                    Copy of a medical assessment of a chest X-ray performed in Russia (in case it is not included in your form 086/y certificate);
+                    Copy of a vaccination certificate;
+                    Certificate from the university’s medical office.
+                    You can only move in after you have attached scanned copies of your medical documents on your personal applicant’s page. If the documents haven’t been attached, you need to provide their copies (form 086/y, medical assessment of a chest X-ray performed in Russia (in case it is not included in the 086/y certificate), vaccination certificate, the medical insurance policy) to the university’s medical office.
+
+                    To book the date and time of their move-in, international students need to inform the International Students Learning and Support Center about the date and time of their arrival not later than three days in advance at: int.students@itmo.ru.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="heading6">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                    Information for students waiting to be assigned a dormitory
+                </button>
+            </h2>
+        </div>
+        <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#accordionExample">
+            <div class="card-body">
+                <p>If a student hasn’t been assigned a place in one of the university’s dorms in the first wave, they will have to find a temporary residence in St. Petersburg on their own (or with the assistance of an estate agency)
+                    and keep tracking their place in the queue on their personal ISU page (My Page - Education - Dormitory) until their status changes to “place assigned”.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</br>
 <ul class="list-unstyled">
     <li class="media">
-        <img class="mr-3" src="../static/img/p9.png" alt="Generic placeholder image" width="128" height="128">
+        <img class="mr-3" src="../static/img/p9.png" alt="Generic placeholder image" width="192" height="192">
         <div class="media-body">
-            <h5 class="mt-0 mb-1">List-based media object</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            <h5 class="mt-0 mb-1">Old Building</h5>
+            <p>761-808 rub. per month</p>
+            <p>779 places</p>
+            <p>on every floor</p>
         </div>
     </li>
     <li class="media my-4">
-        <img class="mr-3" src="../static/img/p9.png" alt="Generic placeholder image" width="128" height="128">
+        <img class="mr-3" src="../static/img/room.jpg" alt="Generic placeholder image" width="192" height="192">
         <div class="media-body">
-            <h5 class="mt-0 mb-1">List-based media object</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            <h5 class="mt-0 mb-1">New Building</h5>
+            <p>1402-1442 rub. per month</p>
+            <p>990 places</p>
+            <p>in each modul</p>
+
         </div>
     </li>
-    <li class="media">
-        <img class="mr-3" src="../static/img/p9.png" alt="Generic placeholder image" width="128" height="128">
-        <div class="media-body">
-            <h5 class="mt-0 mb-1">List-based media object</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-        </div>
-    </li>
+
 </ul>
 {% endblock %}
