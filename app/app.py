@@ -130,12 +130,11 @@ def signin():
         return render_template("signin.html")
 
     if request.method == "POST":
-        print(request.form)
         student_form = Student(
             name=request.form["name"],
             email=request.form["email"],
             passport=request.form["passport"],
-            sex=request.form["female"],
+            sex=request.form["sex"],
             dateofbird=time_format(request.form["dateofbird"]),
             telephone=request.form["phone"],
             room=request.form["room"],

@@ -1,22 +1,38 @@
 {% extends 'base.html' %}
 {% block title %}LOGIN {% endblock %}
+{% block script %}
+<link rel="stylesheet" href="../static/css/auth.css">
 
+{% endblock %}
 {% block content %}
-<div class="form-group container col-md-8 order-md-1">
-    <form class="form-signin">
-        <h1 class="h3 mb-3 font-weight-normal">Please login in</h1>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" style="margin-bottom: 5px;" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" style="margin-bottom: 10px;" placeholder="Password" required>
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Login in</button>
-        <a href="/signin" class="btn btn-secondary btn-lg btn-block">Sign in</a>
-    </form>
-</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Login In</h5>
+                    <form class="form-signin">
+                        <div class="form-label-group">
+                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                            <label for="inputEmail">Email address</label>
+                        </div>
 
+                        <div class="form-label-group">
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                            <label for="inputPassword">Password</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox mb-3">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">Remember password</label>
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login in</button>
+                        <hr class="my-4">
+                        <a href="/signin" style="color: rgb(213, 184, 184); text-decoration:none"> <button class="btn btn-lg btn-google btn-block text-uppercase" type="button"><i class="fab mr-2"></i> Sign in </button></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
