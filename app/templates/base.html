@@ -14,6 +14,9 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../static/css/auth.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../static/css/dropdown.css">
     {%block script%}{% endblock %}
 </head>
 
@@ -41,6 +44,34 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0 btn-success text-light" type="submit">Search</button>
                 </form>
+                <div class="dropdown">
+                    <div class=" bg-primary dropdown-toggle" data-toggle="dropdown">
+                        <img id="navbarDropdown" class="rounded-circle" alt="10x10" style="margin-left: 10px;margin-right: 2px;" width="40px" height="40px" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" data-holder-rendered="true">
+                        Guest
+                    </div>
+
+
+                    <div class="dropdown-menu w-50" aria style="width: 10px;">
+                        <a class="dropdown-item" href="#">1-й уровень</a>
+                        <a class="dropdown-item" href="#">2-й уровень</a>
+                        <a class="dropdown-item" href="#">3-й уровень</a>
+                        <a class="dropdown-item" href="#">4-й уровень</a>
+
+                    </div>
+                </div>
+
+
+                <!-- <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Messages</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Inbox</a>
+                        <a href="#" class="dropdown-item">Drafts</a>
+                        <a href="#" class="dropdown-item">Sent Items</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">Trash</a>
+                    </div>
+                </li> -->
+
             </div>
         </nav>
 
