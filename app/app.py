@@ -144,3 +144,19 @@ def signin():
         db.session.add(student_form)
         db.session.commit()
         return render_template("success.html")
+@app.route("/publicSpace", methods=["GET"])
+def publicSpace():
+    if request.method == "GET":
+        return render_template("publicSpace.html")
+@app.route("/housing", methods=["GET"])
+def housing():
+    if request.method == "GET":
+        return render_template("housing.html")
+@app.route("/sport", methods=["GET"])
+def sport():
+    if request.method == "GET":
+        return render_template("sport.html")
+@app.route("/livingCost", methods=["GET"])
+def livingCost():
+    if request.method == "GET":
+        return render_template("livingCost.html")
