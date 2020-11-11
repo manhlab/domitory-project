@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}ITMO Domitory{% endblock %}
+{% block script %}
+<link rel="stylesheet" href="../static/css/auth.css">
+{% endblock %}
 {% block content %}
 
 
-<div class="container col-md-8 order-md-1" id="central">
+<div class="container col-md-9 col-sm-9 order-md-1" id="central">
 
     <main role="main">
         <div class="jumbotron">
@@ -14,15 +17,15 @@
             <form id="myForm" action="" method="POST" role="form">
                 <div class="form-group">
                     <label for="subject" class="text-black">Name</label>
-                    <input type="text" class="form-control" id="subject" placeholder="Student name" title="Subject should contain more than one letter." name="name" required>
+                    <input type="text" class="form-control card-signin  form-control-lg" id="subject" placeholder="Student name" title="Subject should contain more than one letter." name="name" required>
                 </div>
                 <div class="form-group" id="email-group">
                     <label for="email" class="text-black">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" required>
+                    <input type="email" class="form-control card-signin  form-control-lg" id="email" placeholder="name@example.com" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="subject" class="text-black">Passport</label>
-                    <input type="text" class="form-control" id="subject" placeholder="C12345678" title="Subject should contain more than one letter." name="passport" required>
+                    <input type="text" class="form-control card-signin  form-control-lg" id="subject" placeholder="C12345678" title="Subject should contain more than one letter." name="passport" required>
                 </div>
                 <h6 class="mb-3">Sex</h6>
                 <div class="d-block my-3">
@@ -38,40 +41,40 @@
                 </div>
                 <div class="form-group ">
                     <label for="email" class="text-black">Telephone</label>
-                    <input class="form-control" type="tel" value="1-(555)-555-5555" name="phone" id="example-tel-input">
+                    <input class="form-control card-signin  form-control-lg" type="tel" name="phone" placeholder="name@example.com" id="example-tel-input">
 
                 </div>
                 <div class="form-group ">
                     <label for="example-date-input" class="text-black">Date of Bird</label>
-                    <input class="form-control" type="date" value="2011-08-19" name="dateofbird" id="example-date-input">
+                    <input class="form-control card-signin  form-control-lg" type="date" name="dateofbird" placeholder="name@example.com" id="example-date-input">
 
                 </div>
                 <div class="form-group ">
                     <label for="example-number-input" class="text-black">Number Room</label>
 
-                    <input class="form-control" type="number" value="412" name="room" id="example-number-input">
+                    <input class="form-control card-signin  form-control-lg" type="number" name="room" placeholder="name@example.com" id="example-number-input">
 
                 </div>
                 <div class="form-group ">
                     <label for="example-number-input" class="text-black">Number of contract</label>
-                    <input class="form-control" type="number" value="4122322" name="numofcontract" id="example-number-input">
+                    <input class="form-control card-signin  form-control-lg" type="number" name="numofcontract" placeholder="name@example.com" id="example-number-input">
 
                 </div>
 
 
                 <div class="form-group ">
                     <label for="example-date-input" class="text-black">Start contract</label>
-                    <input class="form-control" type="date" value="2011-08-19" name="dateofstart" id="example-date-input">
+                    <input class="form-control card-signin  form-control-lg" type="date" name="dateofstart" placeholder="name@example.com" id="example-date-input">
 
                 </div>
                 <div class="form-group">
                     <label for="example-date-input" class="text-black">End contract</label>
-                    <input class="form-control" type="date" value="2011-08-19" name="dateofend" id="example-date-input">
+                    <input class="form-control card-signin  form-control-lg" type="date" name="dateofend" placeholder="name@example.com" id="example-date-input">
 
                 </div>
                 <div class="form-group">
                     <label for="example-password-input" class="text-black">Password</label>
-                    <input class="form-control" type="password" value="hunter2" name="passwd" id="example-password-input">
+                    <input class="form-control card-signin  form-control-lg" type="password" placeholder="name@example.com" name="passwd" id="example-password-input">
 
                 </div>
                 <button type="submit" class="btn btn-dark mb-2" name="enquire">Send</button>

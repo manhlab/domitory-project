@@ -17,12 +17,10 @@ from sqlalchemy import Column, ForeignKey, Integer, String, Date, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
-import datetime
+from utils import time_format, hash_format
 import os
 import sys
-def time_format(time_str):
-    y, m, d = str(time_str).split("-")
-    return datetime.date(int(y), int(m), int(d))
+
 # SQL part
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///students.sqlite"
@@ -141,9 +139,8 @@ def signin():
             numofcontract=request.form["numofcontract"],
             startcontract=time_format(request.form["dateofstart"]),
             endofcontract=time_format(request.form["dateofend"]),
-            passwd=request.form["passwd"],
+            passwd=hash_format(request.form["passwd"]),
         )
         db.session.add(student_form)
         db.session.commit()
-        flash("Record was successfully added")
         return render_template("success.html")
