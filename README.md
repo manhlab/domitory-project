@@ -24,7 +24,7 @@ Nothing changes when you develop locally. Just use:
 **Installation via `requirements.txt`**:
 
 ```shell
-$ git clone https://https://github.com/manhlab/domitory-project.git
+$ git clone https://github.com/manhlab/domitory-project.git
 $ cd flasklogin-tutorial
 $ python3 -m venv myenv
 $ source myenv/bin/activate
