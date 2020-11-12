@@ -20,6 +20,9 @@ def signup():
     GET requests serve sign-up page.
     POST requests validate form & user creation.
     """
+    if current_user.is_authenticated:
+        flash("You are login!!")
+        return redirect(url_for("main_bp.dashboard"))
     form = SignupForm()
     if form.validate_on_submit():
         existing_user = User.query.filter_by(email=form.email.data).first()

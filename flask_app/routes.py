@@ -35,20 +35,18 @@ def about():
 
 
 @main_bp.route("/", methods=["GET"])
-@login_required
 def dashboard():
     """Logged-in User Dashboard."""
     if current_user.is_authenticated:
-        return redirect(url_for("main_bp.index"))
+        return render_template(
+            "index.jinja2",
+            current_user=current_user,
+            items=["Request", "Infomation", "Logout"],
+        )
+    else:
+        return render_template("index.jinja2")
 
-    return render_template(
-        "index.jinja2",
-        title="Flask-Login Tutorial.",
-        template="dashboard-template",
-        current_user=current_user,
-        items=["Request", "Infomation", "Logout"],
-        body="You are now logged in!",
-    )
+
 
 
 @main_bp.route("/logout")
