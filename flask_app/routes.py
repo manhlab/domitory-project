@@ -8,17 +8,39 @@ main_bp = Blueprint(
     "main_bp", __name__, template_folder="templates", static_folder="static"
 )
 
+
 @main_bp.route("/home", methods=["GET"])
 def index():
-    return render_template("index.jinja2", current_user=current_user)
+    if current_user.is_authenticated:
+        return render_template(
+            "index.jinja2",
+            current_user=current_user,
+            items=["Request", "Infomation", "Logout"],
+        )
+    else:
+        return render_template("index.jinja2")
+
+
 @main_bp.route("/about", methods=["GET"])
 def about():
-    return render_template("about.jinja2")
+    if current_user.is_authenticated:
+        return render_template(
+            "about.jinja2",
+            current_user=current_user,
+            items=["Request", "Infomation", "Logout"],
+        )
+
+    else:
+        return render_template("about.jinja2")
+
 
 @main_bp.route("/", methods=["GET"])
 @login_required
 def dashboard():
     """Logged-in User Dashboard."""
+    if current_user.is_authenticated:
+        return redirect(url_for("main_bp.index"))
+
     return render_template(
         "index.jinja2",
         title="Flask-Login Tutorial.",
@@ -36,15 +58,50 @@ def logout():
     logout_user()
     return redirect(url_for("auth_bp.login"))
 
+
 @main_bp.route("/publicSpace", methods=["GET"])
 def publicSpace():
-    return render_template("publicSpace.jinja2")
+    if current_user.is_authenticated:
+        return render_template(
+            "publicSpace.jinja2",
+            current_user=current_user,
+            items=["Request", "Infomation", "Logout"],
+        )
+    else:
+        return render_template("publicSpace.jinja2")
+
+
 @main_bp.route("/housing", methods=["GET"])
 def housing():
-    return render_template("housing.jinja2")
+    if current_user.is_authenticated:
+        return render_template(
+            "housing.jinja2",
+            current_user=current_user,
+            items=["Request", "Infomation", "Logout"],
+        )
+    else:
+        return render_template("housing.jinja2")
+
+
 @main_bp.route("/sport", methods=["GET"])
 def sport():
-    return render_template("sport.jinja2")
+    if current_user.is_authenticated:
+        return render_template(
+            "sport.jinja2",
+            current_user=current_user,
+            items=["Request", "Infomation", "Logout"],
+        )
+    else:
+        return render_template("sport.jinja2")
+
+
 @main_bp.route("/livingCost", methods=["GET"])
 def livingCost():
-    return render_template("livingCost.jinja2")
+    if current_user.is_authenticated:
+        return render_template(
+            "livingCost.jinja2",
+            current_user=current_user,
+            items=["Request", "Infomation", "Logout"],
+        )
+    else:
+        return render_template("livingCost.jinja2")

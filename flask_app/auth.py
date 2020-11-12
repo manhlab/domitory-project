@@ -25,9 +25,13 @@ def signup():
         existing_user = User.query.filter_by(email=form.email.data).first()
         if existing_user is None:
             user = User(
-                name=form.name.data, email=form.email.data,address=form.address.data,
-                passport=form.passport.data, 
-                sex= form.sex.data, telephone = form.phone.data, dateofbird = form.bird.data
+                name=form.name.data,
+                email=form.email.data,
+                address=form.address.data,
+                passport=form.passport.data,
+                sex=form.sex.data,
+                telephone=form.phone.data,
+                dateofbird=form.bird.data,
             )
             user.set_password(form.password.data)
             db.session.add(user)
@@ -65,7 +69,7 @@ def login():
             next_page = request.args.get("next")
             return redirect(next_page or url_for("main_bp.dashboard"))
         flash("Invalid username/password combination")
-        return redirect(url_for("auth_bp.login"))
+        # return redirect(url_for("auth_bp.login"))
     return render_template(
         "login.jinja2",
         form=form,

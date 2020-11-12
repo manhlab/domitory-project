@@ -1,8 +1,9 @@
 """Sign-up & log-in forms."""
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField,SelectField
+from wtforms import StringField, PasswordField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, Optional
 from wtforms.fields.html5 import DateField
+
 
 class SignupForm(FlaskForm):
     """User Sign-up Form."""
@@ -31,7 +32,7 @@ class SignupForm(FlaskForm):
         ],
     )
     passport = StringField("Passport", validators=[Optional()])
-    sex = SelectField(u'Sex', choices=[('Male', 'Male'), ('FeMale', 'FeMale')])
+    sex = SelectField(u"Sex", choices=[("Male", "Male"), ("FeMale", "FeMale")])
     phone = StringField("Phone Number", validators=[Optional()])
     address = StringField("Address", validators=[Optional()])
     bird = DateField("Date of Bird", validators=[Optional()])
