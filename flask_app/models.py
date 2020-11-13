@@ -34,6 +34,5 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         """Check hashed password."""
         return check_password_hash(self.password, password)
-
     def __repr__(self):
-        return "<User {}>".format(self.username)
+        return "<User {}>".format(self.name)
