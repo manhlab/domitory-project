@@ -1,86 +1,56 @@
 {% extends 'base.jinja2' %}
-{% block title %}ITMO Domitory{% endblock %}
+{% block title %}About{% endblock %}
 {% block script %}
 <link rel="stylesheet" href="../static/css/auth.css">
+
 {% endblock %}
 {% block content %}
 
 
-<div class="container col-md-9 col-sm-9 order-md-1" id="central">
-
-    <main role="main">
-        <div class="jumbotron card-signin">
-            <h4 class=" card-title text-center text-uppercase">Sign in form</h4>
-            <div id="errorMessage">
-
-            </div>
-            <form id="myForm" action="" method="POST" role="form">
-                <div class="form-group">
-                    <label for="subject" class="text-black">Name</label>
-                    <input type="text" class="form-control card-signin  form-control-lg" id="subject" placeholder="Student name" title="Subject should contain more than one letter." name="name" required>
-                </div>
-                <div class="form-group" id="email-group">
-                    <label for="email" class="text-black">Email address</label>
-                    <input type="email" class="form-control card-signin  form-control-lg" id="email" placeholder="name@example.com" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="subject" class="text-black">Passport</label>
-                    <input type="text" class="form-control card-signin  form-control-lg" id="subject" placeholder="C12345678" title="Subject should contain more than one letter." name="passport" required>
-                </div>
-                <h6 class="mb-3">Sex</h6>
-                <div class="d-block my-3">
-                    <div class="custom-control custom-radio">
-                        <input id="credit" name="sex" value="Male" type="radio" class="custom-control-input" checked required>
-                        <label class="custom-control-label" for="credit">Male</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                        <input id="debit" name="sex" value="Male" type="radio" class="custom-control-input" required>
-                        <label class="custom-control-label" for="debit">Female</label>
-                    </div>
-
-                </div>
-                <div class="form-group ">
-                    <label for="email" class="text-black">Telephone</label>
-                    <input class="form-control card-signin  form-control-lg" type="tel" name="phone" placeholder="name@example.com" id="example-tel-input">
-
-                </div>
-                <div class="form-group ">
-                    <label for="example-date-input" class="text-black">Date of Bird</label>
-                    <input class="form-control card-signin  form-control-lg" type="date" name="dateofbird" placeholder="name@example.com" id="example-date-input">
-
-                </div>
-                <div class="form-group ">
-                    <label for="example-number-input" class="text-black">Number Room</label>
-
-                    <input class="form-control card-signin  form-control-lg" type="number" name="room" placeholder="name@example.com" id="example-number-input">
-
-                </div>
-                <div class="form-group ">
-                    <label for="example-number-input" class="text-black">Number of contract</label>
-                    <input class="form-control card-signin  form-control-lg" type="number" name="numofcontract" placeholder="name@example.com" id="example-number-input">
-
-                </div>
 
 
-                <div class="form-group ">
-                    <label for="example-date-input" class="text-black">Start contract</label>
-                    <input class="form-control card-signin  form-control-lg" type="date" name="dateofstart" placeholder="name@example.com" id="example-date-input">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+<form class="form-signin">
+    
+  <div class="form-group">
+    <label for="seeAnotherField">What's your Request</label>
+    <select class="form-control" id="seeAnotherField">
+          <option value="no">New Contract</option>
+          <option value="yes">Change Room</option>
+    </select>
+  </div>
+  <div class="form-group" id="otherFieldDiv">
+    <label for="otherField">What's Current Room (will random if empty):</label>
+    <input type="text" class="form-control w-100" id="otherField2">
+  </div>
+  <div class="form-group">
+    <label for="seeAnotherFieldGroup">What's Next Room (will random if empty):</label>
+    <input type="text" class="form-control w-100" id="otherField2">
+    
+  </div>
+    <div class="form-group">
+    <label for="seeAnotherFieldGroup3">What's Domitory(will random if empty):</label>
+    <input type="text" class="form-control w-100" id="otherField3">
+    
+  </div>
 
-                </div>
-                <div class="form-group">
-                    <label for="example-date-input" class="text-black">End contract</label>
-                    <input class="form-control card-signin  form-control-lg" type="date" name="dateofend" placeholder="name@example.com" id="example-date-input">
-
-                </div>
-                <div class="form-group">
-                    <label for="example-password-input" class="text-black">Password</label>
-                    <input class="form-control card-signin  form-control-lg" type="password" placeholder="name@example.com" name="passwd" id="example-password-input">
-
-                </div>
-                <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase" name="enquire">Send</button>
-            </form>
-        </div>
-    </main>
+  </div>
+  <div class="form-group">
+    <label for="comments" style="margin-left:5%;">Comments/Questions</label>
+    <textarea class="form-control form-control-sm" id="comments" rows="3" style="margin-left:5%; margin-right:5%; width:90%;" ></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" style="margin-top:10px;">Submit</button>
+</form>
+</div></div>
+</div>
+</div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script src="../static/src/js/request.js"></script>
 {% endblock %}
