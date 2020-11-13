@@ -31,3 +31,12 @@ $ source myenv/bin/activate
 $ pip3 install -r requirements.txt
 $ flask run
 ```
+** On Windows:
+```shell
+$ git clone https://github.com/manhlab/domitory-project.git
+$ cd flasklogin-tutorial
+$ python3 -m venv myenv
+$ myenv/bin/activate.bat
+$ pip3 install -r requirements.txt
+$ flask run
+```
