@@ -22,7 +22,7 @@ Nothing changes when you develop locally. Just use:
 ## Installation
 
 **Installation via `requirements.txt`**:
-
+Rename .env.example to .env
 ```shell
 $ git clone https://github.com/manhlab/domitory-project.git
 $ cd flasklogin-tutorial
@@ -31,7 +31,7 @@ $ source myenv/bin/activate
 $ pip3 install -r requirements.txt
 $ flask run
 ```
-** On Windows:
+**On Windows**:
 ```shell
 $ git clone https://github.com/manhlab/domitory-project.git
 $ cd flasklogin-tutorial
