@@ -16,7 +16,7 @@ def index():
         return render_template(
             "index.jinja2",
             current_user=current_user,
-            items=["Request", "Infomation", "Logout"],
+            items=["Request", "Information", "Logout"],
         )
     else:
         return render_template("index.jinja2")
@@ -28,7 +28,7 @@ def about():
         return render_template(
             "about.jinja2",
             current_user=current_user,
-            items=["Request", "Infomation", "Logout"],
+            items=["Request", "Information", "Logout"],
         )
 
     else:
@@ -42,7 +42,7 @@ def dashboard():
         return render_template(
             "index.jinja2",
             current_user=current_user,
-            items=["Request", "Infomation", "Logout"],
+            items=["Request", "Information", "Logout"],
         )
     else:
         return render_template("index.jinja2")
@@ -64,7 +64,7 @@ def publicSpace():
         return render_template(
             "publicSpace.jinja2",
             current_user=current_user,
-            items=["Request", "Infomation", "Logout"],
+            items=["Request", "Information", "Logout"],
         )
     else:
         return render_template("publicSpace.jinja2")
@@ -76,7 +76,7 @@ def housing():
         return render_template(
             "housing.jinja2",
             current_user=current_user,
-            items=["Request", "Infomation", "Logout"],
+            items=["Request", "Information", "Logout"],
         )
     else:
         return render_template("housing.jinja2")
@@ -88,7 +88,7 @@ def sport():
         return render_template(
             "sport.jinja2",
             current_user=current_user,
-            items=["Request", "Infomation", "Logout"],
+            items=["Request", "Information", "Logout"],
         )
     else:
         return render_template("sport.jinja2")
@@ -100,7 +100,7 @@ def livingCost():
         return render_template(
             "livingCost.jinja2",
             current_user=current_user,
-            items=["Request", "Infomation", "Logout"],
+            items=["Request", "Information", "Logout"],
         )
     else:
         return render_template("livingCost.jinja2")
@@ -137,5 +137,15 @@ def request_user():
     return render_template(
         "request.jinja2",
         current_user=current_user,
-        items=["Request", "Infomation", "Logout"],
+        items=["Request", "Information", "Logout"],
     )
+@main_bp.route("/information", methods=["GET"])
+def info():
+    if current_user.is_authenticated:
+        return render_template(
+            "information.jinja2",
+            current_user=current_user,
+            items=["Request", "Information", "Logout"],
+        )
+    else:
+        return render_template("signup.jinja2")

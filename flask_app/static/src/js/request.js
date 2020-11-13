@@ -3,6 +3,9 @@ $("#seeAnotherField").change(function() {
         $('#otherFieldDiv').show();
         $('#otherField').attr('required', '');
         $('#otherField').attr('data-error', 'This field is required.');
+        $('#otherField3').removeAttr('data-error');
+        $('#otherField3').removeAttr('required');
+        $('#otherField3').hide();
     } else {
         $('#otherFieldDiv').hide();
         $('#otherField').removeAttr('required');
@@ -18,9 +21,7 @@ $("#seeAnotherFieldGroup").change(function() {
         $('#otherField1').attr('data-error', 'This field is required.');
         $('#otherField2').attr('required', '');
         $('#otherField2').attr('data-error', 'This field is required.');
-        $('#otherField3').removeAttr('data-error');
-        $('#otherField3').removeAttr('required');
-        $('#otherField3').hide()
+
     } else {
         $('#otherFieldGroupDiv').hide();
         $('#otherField1').removeAttr('required');
