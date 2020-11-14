@@ -119,24 +119,25 @@ def request_user():
         flash("You are not login!!")
         return redirect(url_for("main_bp.dashboard"))
     if current_user.is_authenticated and request.method == "POST":
-        # ImmutableMultiDict([('currrom', ''), ('nextroom', '123'), ('numberdom', '2'), ('comment', '123123')])
         messenger_err = []
         request_params = []
         request_params.append(current_user.email)
         request_params.append(request.form['comment'])
         if request.form["sellect"] == "yes":
-            request_params.append('CHANGE ROOM')
-            if int("0" + current_user.numberDomitory) == 0:
+            request_params.append('change room')
+            if  current_user.numberDomitory  == '':
                 messenger_err.append("You are not have room!")
                 messenger_err.append("Please add new contract!")
             if current_user.room == request.form["nextroom"]:
                 messenger_err += ["Next room should diffirence current room!"]
             current_user.room = request.form["nextroom"]
         else:
-            request_params.append('NEW CONTRACT')
-            if int("0" + request.form["numberdom"]) not in range(1, 5):
+            request_params.append('new contract')
+            if request.form["numberdom"] not in range(1, 5):
                 messenger_err.append("Number domitory should in 1-4")
-            current_user.room = request.form["nextroom"]
+            if request.form["nextroom"] in Rooms.query.filter_by(email=request.form["numberdom"]).select('room'):
+                current_user.room = request.form["nextroom"]
+
             current_user.numberDomitory = request.form["numberdom"]
             current_user.numofcontract = "ITMO-0{}-{}-{}".format(
                 request.form["numberdom"], request.form["nextroom"], current_user.id
@@ -151,7 +152,6 @@ def request_user():
                                 request_type= request_params[2],
                                 request_mess = request_params[1],
                                 status_request= request_params[3],
-                                
                                 )
             db.session.add(new_request)
             db.session.commit()        
@@ -162,7 +162,7 @@ def request_user():
                 error=messenger_err,
             )
         else:
-            request_params.append("OK")
+            request_params.append("TRUE")
             db.session.commit()
             return render_template(
                 "success.jinja2",
@@ -185,6 +185,8 @@ def info():
             if current_user.sex == "Male"
             else "../static/img/girl.png"
         )
+        act = RequestsForm.query.filter_by(email=current_user.email).all()
+        print(act)
         return render_template(
             "information.jinja2",
             current_user=current_user,
@@ -196,6 +198,7 @@ def info():
             startcontract=current_user.startcontract,
             endcontract=current_user.endofcontract,
             photo_link=photolink,
+            activity=act
         )
     else:
         return render_template("index.jinja2")

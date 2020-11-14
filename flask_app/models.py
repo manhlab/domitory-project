@@ -44,10 +44,12 @@ class Rooms(UserMixin, db.Model):
     __bind_key__ = "rooms"
     id = db.Column("room_id", db.Integer, primary_key=True)
     room = db.Column(db.Integer, nullable=False)
+    numberDomitory = db.Column(db.Integer, nullable=False)
+    gender = db.Column(db.String(40), nullable=False)
     number_person = db.Column(db.Integer, nullable=False)
     type_room = db.Column(db.String(250), nullable=False)
     price_room = db.Column(db.Integer, nullable=False)
-    position_room = db.Column(db.String(250), nullable=False)
+    empty_position = db.Column(db.String(250), nullable=False)
     status_room = db.Column(db.String(250), nullable=False)
     info={'bind_key': 'rooms'}
 
@@ -66,4 +68,4 @@ class RequestsForm(UserMixin, db.Model):
     info={'bind_key': 'request'}
 
     def __repr__(self):
-        return "<Request %r>" % self.room
+        return "<Request %r>" % self.email

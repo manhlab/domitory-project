@@ -48,32 +48,15 @@
                         <div class="col-md-12">
                             <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
                             <table class="table table-sm table-hover table-striped">
-                                <tbody>                                    
+                                <tbody>           
+                                {% for item in activity %}                       
                                     <tr>
                                         <td>
-                                            <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
+                                            <strong>{{ item.name }}</strong> {{item.request_type }} <strong> {{ "OK" if items.status_request else "NOT" }}</strong>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
+                                    {% endfor %}
+                                   
                                 </tbody>
                             </table>
                         </div>
@@ -207,7 +190,7 @@
         </div>
         <div class="col-lg-4 order-lg-1 text-center">
             <img src= {{ photo_link }} class="mx-auto img-fluid img-circle d-block" alt="avatar">
-            <h6 class="mb-3 text-uppercase">{{ username }}</h6>
+            <h4 class="mb-3 text-uppercase page-header">{{ username }}</h4>
             
         </div>
     </div>
