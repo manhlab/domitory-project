@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/manhlab/Desktop/flasklogin-tutorial-master/myenv"
+set -gx VIRTUAL_ENV "/home/manhlab/source_code/domitory-project/myenv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

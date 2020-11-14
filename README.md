@@ -8,7 +8,7 @@ This project is a template. We recommend the following workflow:
 - Start the Docker container:
 
 ```
-$ docker build -t <TAG NAME> .
+$ docker build -t <TAG NAME> . --network=host
 $ docker run -p 80:80 -d <IMAGE ID>.
 ```
 
@@ -22,7 +22,7 @@ Nothing changes when you develop locally. Just use:
 ## Installation
 
 **Installation via `requirements.txt`**:
-Rename .env.example to .env
+- Rename .env.example to .env
 ```shell
 $ git clone https://github.com/manhlab/domitory-project.git
 $ cd flasklogin-tutorial

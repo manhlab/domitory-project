@@ -2,7 +2,7 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import current_user, login_required, logout_user
 from .forms import RequestForm
-from .models import db, User
+from .models import db, User, Rooms, RequestsForm
 import datetime
 
 # Blueprint Configuration
@@ -121,42 +121,54 @@ def request_user():
     if current_user.is_authenticated and request.method == "POST":
         # ImmutableMultiDict([('currrom', ''), ('nextroom', '123'), ('numberdom', '2'), ('comment', '123123')])
         messenger_err = []
-
-        if request.form['sellect'] == '':
-            messenger_err.append("Please sellect sevirce!")
-
-        elif request.form['sellect'] == 'yes':
-            if int('0' + current_user.numberDomitory) == 0:
+        request_params = []
+        request_params.append(current_user.email)
+        request_params.append(request.form['comment'])
+        if request.form["sellect"] == "yes":
+            request_params.append('CHANGE ROOM')
+            if int("0" + current_user.numberDomitory) == 0:
                 messenger_err.append("You are not have room!")
                 messenger_err.append("Please add new contract!")
-            if current_user.room == request.form['nextroom']:
-                messenger_err += "Next room should diffirence current room!"
-            current_user.room = request.form['nextroom']
+            if current_user.room == request.form["nextroom"]:
+                messenger_err += ["Next room should diffirence current room!"]
+            current_user.room = request.form["nextroom"]
         else:
-            if int('0' + request.form['numberdom']) not in range(1, 5):
+            request_params.append('NEW CONTRACT')
+            if int("0" + request.form["numberdom"]) not in range(1, 5):
                 messenger_err.append("Number domitory should in 1-4")
-            current_user.room = request.form['nextroom']
-            current_user.numberDomitory = request.form['numberdom']
+            current_user.room = request.form["nextroom"]
+            current_user.numberDomitory = request.form["numberdom"]
             current_user.numofcontract = "ITMO-0{}-{}-{}".format(
-                request.form['numberdom'], request.form['nextroom'], current_user.id)
+                request.form["numberdom"], request.form["nextroom"], current_user.id
+            )
             current_user.startcontract = datetime.date.today()
-            current_user.endofcontract = datetime.date(
-                int(2020), int(6), int(30))
+            current_user.endofcontract = datetime.date(int(2020), int(6), int(30))
 
-        db.session.commit()
+        
         if messenger_err:
+            request_params.append("FALSE")
+            new_request = RequestsForm(email=request_params[0],
+                                request_type= request_params[2],
+                                request_mess = request_params[1],
+                                status_request= request_params[3],
+                                
+                                )
+            db.session.add(new_request)
+            db.session.commit()        
             return render_template(
                 "request.jinja2",
                 current_user=current_user,
                 items=["Request", "Information", "Logout"],
-                error=messenger_err
+                error=messenger_err,
             )
         else:
+            request_params.append("OK")
+            db.session.commit()
             return render_template(
                 "success.jinja2",
                 current_user=current_user,
                 items=["Request", "Information", "Logout"],
-                error=messenger_err
+                error=messenger_err,
             )
     return render_template(
         "request.jinja2",
@@ -168,7 +180,11 @@ def request_user():
 @main_bp.route("/information", methods=["GET"])
 def info():
     if current_user.is_authenticated:
-        photolink = "../static/img/boy.png" if current_user.sex=="Male" else "../static/img/girl.png"
+        photolink = (
+            "../static/img/boy.png"
+            if current_user.sex == "Male"
+            else "../static/img/girl.png"
+        )
         return render_template(
             "information.jinja2",
             current_user=current_user,
@@ -177,9 +193,14 @@ def info():
             address_user=current_user.address,
             passport_user=current_user.passport,
             numcontract=current_user.numofcontract,
-            strartcontract=current_user.startcontract,
+            startcontract=current_user.startcontract,
             endcontract=current_user.endofcontract,
-            photo_link=photolink
+            photo_link=photolink,
         )
     else:
         return render_template("index.jinja2")
+
+
+@main_bp.route("/admin", methods=["GET"])
+def adminview():
+    return render_template("adminview.jinja2")

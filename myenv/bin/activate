@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/manhlab/Desktop/flasklogin-tutorial-master/myenv"
+VIRTUAL_ENV="/home/manhlab/source_code/domitory-project/myenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

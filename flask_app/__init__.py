@@ -12,6 +12,10 @@ def create_app():
     """Construct the core app object."""
     app = Flask(__name__, instance_relative_config=False)
     app.config.from_object("config.Config")
+    app.config["SQLALCHEMY_BINDS"] = {
+        "rooms": "sqlite:///rooms.sqlite",
+        "request": "sqlite:///request.sqlite",
+    }
 
     # Initialize Plugins
     db.init_app(app)

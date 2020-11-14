@@ -34,5 +34,36 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         """Check hashed password."""
         return check_password_hash(self.password, password)
+
     def __repr__(self):
         return "<User {}>".format(self.name)
+
+
+class Rooms(UserMixin, db.Model):
+    __tablename__ = "rooms"
+    __bind_key__ = "rooms"
+    id = db.Column("room_id", db.Integer, primary_key=True)
+    room = db.Column(db.Integer, nullable=False)
+    number_person = db.Column(db.Integer, nullable=False)
+    type_room = db.Column(db.String(250), nullable=False)
+    price_room = db.Column(db.Integer, nullable=False)
+    position_room = db.Column(db.String(250), nullable=False)
+    status_room = db.Column(db.String(250), nullable=False)
+    info={'bind_key': 'rooms'}
+
+    def __repr__(self):
+        return "<Room %r>" % self.room
+
+
+class RequestsForm(UserMixin, db.Model):
+    __tablename__ = "request"
+    __bind_key__ = "request"
+    id = db.Column("request_id", db.Integer, primary_key=True)
+    email = db.Column(db.String(40), nullable=False)
+    request_type = db.Column(db.String(250), nullable=False)
+    request_mess = db.Column(db.String(250), nullable=True)
+    status_request = db.Column(db.String(250), nullable=True)
+    info={'bind_key': 'request'}
+
+    def __repr__(self):
+        return "<Request %r>" % self.room

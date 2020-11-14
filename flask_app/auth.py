@@ -35,8 +35,8 @@ def signup():
                 sex=form.sex.data,
                 telephone=form.phone.data,
                 dateofbird=form.bird.data,
-                created_on = datetime.datetime.now(),
-                last_login = datetime.datetime.now()
+                created_on=datetime.datetime.now(),
+                last_login=datetime.datetime.now(),
             )
             user.set_password(form.password.data)
             db.session.add(user)
