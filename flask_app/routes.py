@@ -17,7 +17,7 @@ def index():
         return render_template(
             "index.jinja2",
             current_user=current_user,
-            items=["Request", "Information", "Logout"],
+                items=["Request", "Information","Admin", "Logout"] if current_user.email=='admin' else ["Request", "Information", "Logout"] ,
         )
     else:
         return render_template("index.jinja2")
@@ -29,7 +29,7 @@ def about():
         return render_template(
             "about.jinja2",
             current_user=current_user,
-            items=["Request", "Information", "Logout"],
+                items=["Request", "Information","Admin", "Logout"] if current_user.email=='admin' else ["Request", "Information", "Logout"] ,
         )
 
     else:
@@ -43,7 +43,7 @@ def dashboard():
         return render_template(
             "index.jinja2",
             current_user=current_user,
-            items=["Request", "Information", "Logout"],
+                items=["Request", "Information","Admin", "Logout"] if current_user.email=='admin' else ["Request", "Information", "Logout"] ,
         )
     else:
         return render_template("index.jinja2")
@@ -65,7 +65,7 @@ def publicSpace():
         return render_template(
             "publicSpace.jinja2",
             current_user=current_user,
-            items=["Request", "Information", "Logout"],
+                items=["Request", "Information","Admin", "Logout"] if current_user.email=='admin' else ["Request", "Information", "Logout"] ,
         )
     else:
         return render_template("publicSpace.jinja2")
@@ -77,7 +77,7 @@ def housing():
         return render_template(
             "housing.jinja2",
             current_user=current_user,
-            items=["Request", "Information", "Logout"],
+                items=["Request", "Information","Admin", "Logout"] if current_user.email=='admin' else ["Request", "Information", "Logout"] ,
         )
     else:
         return render_template("housing.jinja2")
@@ -89,7 +89,7 @@ def sport():
         return render_template(
             "sport.jinja2",
             current_user=current_user,
-            items=["Request", "Information", "Logout"],
+                items=["Request", "Information","Admin", "Logout"] if current_user.email=='admin' else ["Request", "Information", "Logout"] ,
         )
     else:
         return render_template("sport.jinja2")
@@ -101,7 +101,7 @@ def livingCost():
         return render_template(
             "livingCost.jinja2",
             current_user=current_user,
-            items=["Request", "Information", "Logout"],
+                items=["Request", "Information","Admin", "Logout"] if current_user.email=='admin' else ["Request", "Information", "Logout"] ,
         )
     else:
         return render_template("livingCost.jinja2")
@@ -122,20 +122,22 @@ def request_user():
         messenger_err = []
         request_params = []
         request_params.append(current_user.email)
-        request_params.append(request.form['comment'])
+        request_params.append(request.form["comment"])
         if request.form["sellect"] == "yes":
-            request_params.append('change room')
-            if  current_user.numberDomitory  == '':
+            request_params.append("change room")
+            if current_user.numberDomitory == "":
                 messenger_err.append("You are not have room!")
                 messenger_err.append("Please add new contract!")
             if current_user.room == request.form["nextroom"]:
                 messenger_err += ["Next room should diffirence current room!"]
             current_user.room = request.form["nextroom"]
         else:
-            request_params.append('new contract')
+            request_params.append("new contract")
             if request.form["numberdom"] not in range(1, 5):
                 messenger_err.append("Number domitory should in 1-4")
-            if request.form["nextroom"] in Rooms.query.filter_by(email=request.form["numberdom"]).select('room'):
+            if request.form["nextroom"] in Rooms.query.filter_by(
+                email=request.form["numberdom"]
+            ).select("room"):
                 current_user.room = request.form["nextroom"]
 
             current_user.numberDomitory = request.form["numberdom"]
@@ -145,20 +147,20 @@ def request_user():
             current_user.startcontract = datetime.date.today()
             current_user.endofcontract = datetime.date(int(2020), int(6), int(30))
 
-        
         if messenger_err:
             request_params.append("FALSE")
-            new_request = RequestsForm(email=request_params[0],
-                                request_type= request_params[2],
-                                request_mess = request_params[1],
-                                status_request= request_params[3],
-                                )
+            new_request = RequestsForm(
+                email=request_params[0],
+                request_type=request_params[2],
+                request_mess=request_params[1],
+                status_request=request_params[3],
+            )
             db.session.add(new_request)
-            db.session.commit()        
+            db.session.commit()
             return render_template(
                 "request.jinja2",
                 current_user=current_user,
-                items=["Request", "Information", "Logout"],
+                items=["Request", "Information","Admin", "Logout"] if current_user.email=='admin' else ["Request", "Information", "Logout"] ,
                 error=messenger_err,
             )
         else:
@@ -167,13 +169,13 @@ def request_user():
             return render_template(
                 "success.jinja2",
                 current_user=current_user,
-                items=["Request", "Information", "Logout"],
+                items=["Request", "Information","Admin", "Logout"] if current_user.email=='admin' else ["Request", "Information", "Logout"] ,
                 error=messenger_err,
             )
     return render_template(
         "request.jinja2",
         current_user=current_user,
-        items=["Request", "Information", "Logout"],
+                items=["Request", "Information","Admin", "Logout"] if current_user.email=='admin' else ["Request", "Information", "Logout"] ,
     )
 
 
@@ -186,11 +188,11 @@ def info():
             else "../static/img/girl.png"
         )
         act = RequestsForm.query.filter_by(email=current_user.email).all()
-        print(act)
-        return render_template(
+        if current_user.email=='admin':        
+            return render_template(
             "information.jinja2",
             current_user=current_user,
-            items=["Request", "Information", "Logout"],
+                items=["Request", "Information","Admin", "Logout"] if current_user.email=='admin' else ["Request", "Information", "Logout"] ,
             username=current_user.name,
             address_user=current_user.address,
             passport_user=current_user.passport,
@@ -198,12 +200,26 @@ def info():
             startcontract=current_user.startcontract,
             endcontract=current_user.endofcontract,
             photo_link=photolink,
-            activity=act
+            activity=act,
+        )
+        else: 
+            return render_template(
+            "information.jinja2",
+            current_user=current_user,
+                items=["Request", "Information","Admin", "Logout"]  if current_user.email=='admin' else ["Request", "Information", "Logout"] ,
+            username=current_user.name,
+            address_user=current_user.address,
+            passport_user=current_user.passport,
+            numcontract=current_user.numofcontract,
+            startcontract=current_user.startcontract,
+            endcontract=current_user.endofcontract,
+            photo_link=photolink,
+            activity=act,
         )
     else:
         return render_template("index.jinja2")
 
 
-@main_bp.route("/admin", methods=["GET"])
-def adminview():
-    return render_template("adminview.jinja2")
+# @main_bp.route("/admin", methods=["GET"])
+# def adminview():
+#     return render_template("adminview.jinja2")

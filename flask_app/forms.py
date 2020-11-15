@@ -50,7 +50,7 @@ class LoginForm(FlaskForm):
     """User Log-in Form."""
 
     email = StringField(
-        "Email", validators=[DataRequired(), Email(message="Enter a valid email.")]
+        "Email or Username", validators=[DataRequired()]
     )
     password = PasswordField("Password", validators=[DataRequired()])
     submit = SubmitField("Log In")

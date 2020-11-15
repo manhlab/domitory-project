@@ -1,8 +1,7 @@
 """Database models."""
-from . import db
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from . import db
 
 class User(UserMixin, db.Model):
     """User account model."""
@@ -38,6 +37,25 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return "<User {}>".format(self.name)
 
+    @property
+    def is_authenticated(self):
+        return True
+
+    @property
+    def is_active(self):
+        return True
+
+    @property
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return self.id
+
+    # Required for administrative interface
+    def __unicode__(self):
+        return self.name
+
 
 class Rooms(UserMixin, db.Model):
     __tablename__ = "rooms"
@@ -51,10 +69,12 @@ class Rooms(UserMixin, db.Model):
     price_room = db.Column(db.Integer, nullable=False)
     empty_position = db.Column(db.String(250), nullable=False)
     status_room = db.Column(db.String(250), nullable=False)
-    info={'bind_key': 'rooms'}
+    info = {"bind_key": "rooms"}
 
     def __repr__(self):
         return "<Room %r>" % self.room
+    def __unicode__(self):
+        return self.room
 
 
 class RequestsForm(UserMixin, db.Model):
@@ -65,7 +85,9 @@ class RequestsForm(UserMixin, db.Model):
     request_type = db.Column(db.String(250), nullable=False)
     request_mess = db.Column(db.String(250), nullable=True)
     status_request = db.Column(db.String(250), nullable=True)
-    info={'bind_key': 'request'}
+    info = {"bind_key": "request"}
 
     def __repr__(self):
         return "<Request %r>" % self.email
+    def __unicode__(self):
+        return self.email

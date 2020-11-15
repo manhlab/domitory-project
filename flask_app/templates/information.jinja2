@@ -52,7 +52,7 @@
                                 {% for item in activity %}                       
                                     <tr>
                                         <td>
-                                            <strong>{{ item.name }}</strong> {{item.request_type }} <strong> {{ "OK" if items.status_request else "NOT" }}</strong>
+                                            <strong>{{ item.email }}</strong> {{item.request_type }} <strong> {{ "OK" if items.status_request else "NOT" }}</strong>
                                         </td>
                                     </tr>
                                     {% endfor %}

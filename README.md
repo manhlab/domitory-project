@@ -15,9 +15,11 @@ $ docker run -p 80:80 -d <IMAGE ID>.
 - Verify that `<IP address of Docker machine>/flask-nginx` works, i.e. that Nginx is properly delegating to flask-nginx.
 - Move your code into the flask-nginx application, renaming things as needed.
 
-#### Developing locally
-
-Nothing changes when you develop locally. Just use:
+**Admin**
+```
+admin
+admin1234
+```
 
 ## Installation
 
