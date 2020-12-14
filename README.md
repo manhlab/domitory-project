@@ -57,30 +57,35 @@ $ flask run
 
 Выберите необходимый набор сущностей:
 Сущность в нашей модели взаимоотношений - это комната студента и общежития.
-Определите группу атрибутов каждого объекта:
+Определите группу атрибутов каждого объекта:\\
 	Для каждой сущности мы описываем и определяем ее в соответствии с конкретными факторами и способами действия каждого субъекта.
-	Для групп учащихся мы даем каждому следующее:
+	Для групп учащихся мы даем каждому следующее:\\
 Отдельный идентификационный номер для каждого человека: 
-id = db.Column(db.Integer, primary_key=True)
+```id = db.Column(db.Integer, primary_key=True)```
 Их имя и адрес электронной почты: 
+```
 name = db.Column(db.String(100), nullable=False, unique=False) 
 email = db.Column(db.String(40), unique=True, nullable=False)
+```
 Пароль учетной записи: 
+```
 password = db.Column( db.String(200), primary_key=False, unique=False, nullable=False)
+```
 Далее следует предварительная информация о том, как быть членом общежития.: passport-address-sex-dateobird-telephone-numberDomitory-room-numofcontract-startcontract-endofcontract-created_on-last_login.
 В соответствии с методом действий каждого учащегося им разрешается делать следующее:
-Create hashed password
+```Create hashed password
 Check hashed password
 Запросить размещение
 Запросить перенос номера
 Запросить услуги, доступные в общежитии
+```
 Для комнат у нас есть следующие элементы:
 Укажите идентификатор для каждой комнаты: 
-id = db.Column("room_id", db.Integer, primary_key=True)
+```id = db.Column("room_id", db.Integer, primary_key=True)```
 Название комнаты: 
 room = db.Column(db.Integer, nullable=False)
 Количество комнат в общежитии: 
-numberDomitory = db.Column(db.Integer, nullable=False)
+```numberDomitory = db.Column(db.Integer, nullable=False)```
 И множество других отличительных особенностей: gender-number_person-type_room-price_room-empty_position-status_room => info.
 
 Отношения между сущностями будут описаны в виде 1: 1, 1: M и M: N.
