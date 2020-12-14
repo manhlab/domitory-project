@@ -22,6 +22,28 @@ $ docker run -p 80:80 -d <IMAGE ID>.
 admin
 admin1234
 ```
+## Package used in this project:
+```
+click==7.1.2
+dnspython==2.0.0
+email-validator==1.1.1
+Flask==1.1.2
+Flask-Assets==2.0
+Flask-Login==0.5.0
+Flask-SQLAlchemy==2.4.4
+Flask-WTF==0.14.3
+idna==2.10
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+PyMySQL==0.10.0
+python-dotenv==0.14.0
+SQLAlchemy==1.3.19
+webassets==2.0
+Werkzeug==1.0.1
+WTForms==2.3.3
+flask-admin
+```
 
 ## Installation
 
@@ -244,29 +266,81 @@ user = User(
                 created_on=datetime.datetime.now(),
                 last_login=datetime.datetime.now(),
             )
-            user.set_password(form.password.data)
-            db.session.add(user)
-            db.session.commit()  # Create new user
+user.set_password(form.password.data)
+db.session.add(user)
+db.session.commit()  # Create new user
 ```
 
 ## Этап  6. 
 **Создать Web форму для выполнения запросов к серверной базе данных Адаптировать имеющиеся запросы и/или реализовать новые.**
 ```
-if existing_user is None:
-            user = User(
-                name=form.name.data,
-                email=form.email.data,
-                address=form.address.data,
-                passport=form.passport.data,
-                sex=form.sex.data,
-                telephone=form.phone.data,
-                dateofbird=form.bird.data,
-                created_on=datetime.datetime.now(),
-                last_login=datetime.datetime.now(),
-            )
-            user.set_password(form.password.data)
-            db.session.add(user)
-            db.session.commit()  # Create new user
+from flask_wtf import FlaskForm
+from wtforms import (
+    StringField,
+    PasswordField,
+    SubmitField,
+    SelectField,
+    IntegerField,
+    HiddenField,
+)
+class SignupForm(FlaskForm):
+    """User Sign-up Form."""
+
+    name = StringField("Name", validators=[DataRequired()])
+    email = StringField(
+        "Email",
+        validators=[
+            Length(min=6),
+            Email(message="Enter a valid email."),
+            DataRequired(),
+        ],
+    )
+    password = PasswordField(
+        "Password",
+        validators=[
+            DataRequired(),
+            Length(min=6, message="Select a stronger password."),
+        ],
+    )
+    confirm = PasswordField(
+        "Confirm Your Password",
+        validators=[
+            DataRequired(),
+            EqualTo("password", message="Passwords must match."),
+        ],
+    )
+    passport = StringField("Passport", validators=[Optional()])
+    sex = SelectField("Sex", choices=[("Male", "Male"), ("FeMale", "FeMale")])
+    phone = StringField("Phone Number", validators=[Optional()])
+    address = StringField("Address", validators=[Optional()])
+    bird = DateField("Date of Bird", validators=[Optional()])
+    submit = SubmitField("Register")
+
+
+class LoginForm(FlaskForm):
+    """User Log-in Form."""
+
+    email = StringField(
+        "Email or Username", validators=[DataRequired()]
+    )
+    password = PasswordField("Password", validators=[DataRequired()])
+    submit = SubmitField("Log In")
+
+
+class RequestForm(FlaskForm):
+    """Request Form
+    Args:
+        FlaskForm ([type]): [description]
+    """
+
+    type_request = SelectField(
+        "Your Request",
+        choices=[
+            ("Choose your request", "choice"),
+            ("Register New Room", "newroom"),
+            ("Change Room", "changeroom"),
+        ],
+    )
 ```
 ## Этап  7. 
 **Построить функциональную диаграмму в нотации IDEF0 для всей информационной системы в целом и для отдельных сценариев, отражающих логику и взаимоотношение подсистем. Реализовать IDEF0-модель. Заполнить глоссарий IDEF0-модели. Проверить корректность разработанной модели.**
