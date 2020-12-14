@@ -42,6 +42,6 @@ $ myenv/bin/activate.bat
 $ pip3 install -r requirements.txt
 $ flask run
 ```
-![]("assets/7.jpg")
-![]("assets/11.jpg")
-![]("assets/14.jpg)
+![](assets/7.jpg)
+![](assets/11.jpg)
+![](assets/14.jpg)
