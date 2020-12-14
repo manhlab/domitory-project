@@ -1,4 +1,6 @@
 # Flask-SQL Docker depoly for Domitory system
+## Technical program
+![](assets/diagram.png)
 
 ## Using this project
 
@@ -42,8 +44,7 @@ $ myenv/bin/activate.bat
 $ pip3 install -r requirements.txt
 $ flask run
 ```
-## Technical program
-![](assets/diagram.png)
+
 ## Task 7
 ![](assets/7.jpg)
 ## Task 11
