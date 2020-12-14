@@ -42,6 +42,11 @@ $ myenv/bin/activate.bat
 $ pip3 install -r requirements.txt
 $ flask run
 ```
+## Technical program
+![]("assets/diagram.png)
+## Task 7
 ![](assets/7.jpg)
+## Task 11
 ![](assets/11.jpg)
+## Task 14
 ![](assets/14.jpg)
