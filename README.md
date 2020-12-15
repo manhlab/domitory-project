@@ -1,4 +1,4 @@
-# Flask-SQL Docker depoly for Domitory system
+# Flask-SQL deploy Domitory system Manager with SQLAlchemy
 ## Technical program
 ![](assets/diagram.png)
 
