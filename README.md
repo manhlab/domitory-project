@@ -371,8 +371,4 @@ class RequestForm(FlaskForm):
 ![](assets/12.jpg)
 ## Этап 14. 
 **Реализовать диаграмму развертывания системы.**
-<<<<<<< HEAD
 ![](assets/14.jpg)
-=======
-![](assets/14x.jpg)
->>>>>>> 010d360 ( update)
